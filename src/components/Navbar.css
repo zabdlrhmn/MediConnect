@@ -1,0 +1,17 @@
+.custom-navbar {
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* gradient blue */
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.custom-navbar .navbar-brand {
+  color: #ffffff; /* white text */
+  font-weight: 700;
+  font-size: 28px;
+  text-align: center;
+  width: 100%;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #fcd34d; /* golden hover */
+}

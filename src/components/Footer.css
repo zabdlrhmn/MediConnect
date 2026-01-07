@@ -1,0 +1,14 @@
+.footer {
+    background-color: #1e3a8a; /* dark blue to match navbar gradient */
+    color: #f9fafb; /* light text */
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* pushes footer to bottom */
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* subtle top shadow */
+    font-weight: 500;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 16px;
+}

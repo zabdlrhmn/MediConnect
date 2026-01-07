@@ -1,38 +1,46 @@
+/* ===================== App Container ===================== */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh; /* full viewport height */
 }
 
-.App-link {
-  color: #61dafb;
+/* ===================== Content ===================== */
+.content {
+  flex: 1; /* grows to take all remaining space */
+  padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ===================== Navbar ===================== */
+.navbar.custom-navbar {
+  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar.custom-navbar .navbar-brand {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 28px;
+  text-align: center;
+  width: 100%;
+}
+
+.navbar.custom-navbar .navbar-brand:hover {
+  color: #fcd34d;
+}
+
+/* ===================== Footer ===================== */
+.footer {
+  background-color: #1e3a8a;
+  color: #f9fafb;
+  text-align: center;
+  padding: 15px 0;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 16px;
 }
