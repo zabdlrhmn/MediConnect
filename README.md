@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# MediConnect — Frontend + Backend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a React frontend and a minimal Express + MySQL backend used by the MediConnect demo app.
 
-## Available Scripts
+Summary
+- Frontend: React app in the project root (`src/`, `public/`).
+- Backend: Node/Express server in `Backend/` with API routes and DB helpers.
 
-In the project directory, you can run:
+Quick start (Backend)
+1. Open `.env` in the `Backend` folder and confirm DB settings (host/user/password/name/port).
+2. Start MySQL so the `mediconnect` database is available.
+3. From the `Backend` folder run:
+```powershell
+npm install
+node server.js
+```
+4. Seed admin (doctor) accounts (plaintext passwords `1`,`2`,`3`,`4`):
+```powershell
+node scripts/insertAdminsPlain.js
+```
 
-### `npm start`
+API endpoints
+- `GET /api/patients` — list patients
+- `GET /api/doctors` — list doctors
+- `POST /api/auth/login` — login for `doctor` (body: `{ role: 'doctor', password: '1' }`). Patients do not need a password.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Quick start (Frontend)
+1. From the project root run:
+```powershell
+npm install
+npm start
+```
+2. Open http://localhost:3000 and use the Login screen.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Notes about authentication
+- For convenience this project includes a simple admin table and plaintext passwords by default. The insert script is `Backend/scripts/insertAdminsPlain.js` and inserts four admin users (`admin1`..`admin4`) with passwords `1`,`2`,`3`,`4`.
+- The backend accepts plaintext passwords to match these values. For production use, replace this with hashed passwords and secure auth.
 
-### `npm test`
+Files of interest
+- Backend server: [Backend/server.js](Backend/server.js)
+- Auth route: [Backend/routes/auth.js](Backend/routes/auth.js)
+- Seed/insert scripts: [Backend/scripts/seedAdmins.js](Backend/scripts/seedAdmins.js) and [Backend/scripts/insertAdminsPlain.js](Backend/scripts/insertAdminsPlain.js)
+- SQL file: [Backend/sql/insert_admins_plain.sql](Backend/sql/insert_admins_plain.sql)
+- Frontend pages: [src/pages/Doctors.js](src/pages/Doctors.js) and [src/pages/Patients.js](src/pages/Patients.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Testing endpoints
+- Example (from Backend folder):
+```powershell
+curl http://localhost:5000/api/patients
+curl http://localhost:5000/api/doctors
+curl -X POST http://localhost:5000/api/auth/login -H "Content-Type: application/json" -d "{\"role\":\"doctor\",\"password\":\"1\"}"
+```
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you want README changes (formatting or extra instructions), tell me what to add.
