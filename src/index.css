@@ -1,4 +1,4 @@
-/* ===================== Reset & Body ===================== */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,7 +8,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ensure html/body/root fill full viewport */
+
 html, body, #root {
   height: 100%;
   margin: 0;

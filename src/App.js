@@ -9,7 +9,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <div className="App"> {/* <-- make this the flex container */}
+      <div className="App">
         <Navbar />
         <div className="content container mt-4">
           <Routes>

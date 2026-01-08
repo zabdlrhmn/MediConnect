@@ -12,7 +12,7 @@ app.use("/api/doctors", doctorsRouter);
 app.use("/api/patients", patientsRouter);
 app.use("/api/auth", authRouter);
 
-// Debug: list registered routes
+
 app.get('/routes', (req, res) => {
 	const routes = [];
 	app._router.stack.forEach(mw => {

@@ -1,17 +1,17 @@
-/* ===================== App Container ===================== */
+
 .App {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* full viewport height */
+  min-height: 100vh; 
 }
 
-/* ===================== Content ===================== */
+
 .content {
-  flex: 1; /* grows to take all remaining space */
+  flex: 1; 
   padding: 20px;
 }
 
-/* ===================== Navbar ===================== */
+
 .navbar.custom-navbar {
   background: linear-gradient(90deg, #1e3a8a, #3b82f6);
   padding: 15px 0;
@@ -30,7 +30,7 @@
   color: #fcd34d;
 }
 
-/* ===================== Footer ===================== */
+
 .footer {
   background-color: #1e3a8a;
   color: #f9fafb;
